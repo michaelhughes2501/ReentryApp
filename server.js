@@ -1,5 +1,4 @@
 require('dotenv').config();
-require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -18,8 +17,8 @@ app.use(express.static(publicDir, { maxAge: '1h' }));
 app.use(
   rateLimit({
     windowMs: 60 * 1000,
-    max: 100,
-    standardHeaders: true,
+    limit: 100,
+    standardHeaders: 'draft-7',
     legacyHeaders: false,
   })
 );
