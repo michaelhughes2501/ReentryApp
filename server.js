@@ -13,7 +13,6 @@ const publicDir = path.join(__dirname, 'public');
 app.set('trust proxy', 1);
 
 app.use(helmet());
-app.use(express.static(publicDir, { maxAge: '1h' }));
 app.use(
   rateLimit({
     windowMs: 60 * 1000,
@@ -22,6 +21,7 @@ app.use(
     legacyHeaders: false,
   })
 );
+app.use(express.static(publicDir, { maxAge: '1h' }));
 
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
