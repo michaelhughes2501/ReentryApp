@@ -13,6 +13,11 @@ const publicDir = path.join(__dirname, 'public');
 app.set('trust proxy', 1);
 
 app.use(helmet());
+
+// Health endpoint is exempt from rate-limiting so load-balancer probes
+// always get a timely 200, even when other routes are being throttled.
+app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+
 app.use(
   rateLimit({
     windowMs: 60 * 1000,
@@ -22,8 +27,6 @@ app.use(
   })
 );
 app.use(express.static(publicDir, { maxAge: '1h' }));
-
-app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
 app.use((_req, res) => {
   res.sendFile(path.join(publicDir, 'index.html'));
