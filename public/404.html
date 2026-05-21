@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — ReentryApp</title>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-[#0f172a] text-white antialiased min-h-screen flex flex-col">
+
+  <!-- NAVIGATION -->
+  <header x-data="{ open: false }" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-sky-400 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#0f172a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold text-white">ReentryApp</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/#features" class="text-slate-300 hover:text-sky-400 transition-colors text-sm font-medium">Features</a>
+          <a href="/#about" class="text-slate-300 hover:text-sky-400 transition-colors text-sm font-medium">About</a>
+          <a href="/#resources" class="text-slate-300 hover:text-sky-400 transition-colors text-sm font-medium">Resources</a>
+          <a href="/#contact" class="text-slate-300 hover:text-sky-400 transition-colors text-sm font-medium">Contact</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="/#contact" class="bg-sky-400 hover:bg-sky-300 text-[#0f172a] font-semibold text-sm px-4 py-2 rounded-lg transition-colors">Get Started</a>
+        </div>
+        <button @click="open = !open" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors" aria-label="Toggle menu">
+          <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div x-show="open" x-transition class="md:hidden border-t border-slate-800 bg-[#0f172a]">
+      <nav class="px-4 py-4 flex flex-col gap-3">
+        <a href="/#features" @click="open=false" class="text-slate-300 hover:text-sky-400 transition-colors py-2 text-sm font-medium">Features</a>
+        <a href="/#about" @click="open=false" class="text-slate-300 hover:text-sky-400 transition-colors py-2 text-sm font-medium">About</a>
+        <a href="/#resources" @click="open=false" class="text-slate-300 hover:text-sky-400 transition-colors py-2 text-sm font-medium">Resources</a>
+        <a href="/#contact" @click="open=false" class="text-slate-300 hover:text-sky-400 transition-colors py-2 text-sm font-medium">Contact</a>
+        <a href="/#contact" @click="open=false" class="mt-2 bg-sky-400 hover:bg-sky-300 text-[#0f172a] font-semibold text-sm px-4 py-2 rounded-lg text-center transition-colors">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 404 CONTENT -->
+  <main class="flex-1 flex items-center justify-center px-4 py-24">
+    <div class="text-center max-w-lg">
+      <div class="text-8xl sm:text-9xl font-extrabold text-sky-400/20 leading-none mb-4 select-none">404</div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mb-4">Page Not Found</h1>
+      <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+        The page you're looking for doesn't exist or may have been moved. Everyone takes a wrong turn sometimes — let's get you back on track.
+      </p>
+      <a href="/" class="inline-flex items-center gap-2 bg-sky-400 hover:bg-sky-300 text-[#0f172a] font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-sky-400/25 hover:shadow-sky-400/40 hover:scale-105">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Return Home
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-slate-600 text-sm">&copy; 2024 ReentryApp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

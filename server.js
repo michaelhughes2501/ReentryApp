@@ -25,8 +25,20 @@ app.use(express.static(publicDir, { maxAge: '1h' }));
 
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
-app.use((_req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
+// Catch-all: serve index.html for navigable HTML routes (SPA / MPA fallback),
+// but return a proper 404 for asset requests (JS, CSS, images, fonts, etc.)
+// so the browser doesn't silently receive HTML when it expected a binary.
+app.use((req, res) => {
+  const ext = path.extname(req.path).toLowerCase();
+  const htmlExtensions = ['', '.html', '.htm'];
+
+  if (htmlExtensions.includes(ext)) {
+    // Unknown HTML / navigation route — send the 404 page with a 404 status.
+    res.status(404).sendFile(path.join(publicDir, '404.html'));
+  } else {
+    // Asset not found — plain 404, no body needed.
+    res.status(404).end();
+  }
 });
 
 if (require.main === module) {
