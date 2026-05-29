@@ -1,1 +1,22 @@
-ewogICJuYW1lIjogInJlZW50cnlhcHAiLAogICJ2ZXJzaW9uIjogIjAuMS4wIiwKICAiZGVzY3JpcHRpb24iOiAiV2ViIGFwcCBzdXBwb3J0aW5nIHJlZW50cnkgaW50byB0aGUgY29tbXVuaXR5IGFmdGVyIGluY2FyY2VyYXRpb24uIiwKICAibWFpbiI6ICJzZXJ2ZXIuanMiLAogICJlbmdpbmVzIjogewogICAgIm5vZGUiOiAiPj0xOC4xMS4wIgogIH0sCiAgInNjcmlwdHMiOiB7CiAgICAic3RhcnQiOiAibm9kZSBzZXJ2ZXIuanMiLAogICAgImRldiI6ICJub2RlIC0td2F0Y2ggc2VydmVyLmpzIiwKICAgICJ0ZXN0IjogImVjaG8gXCJObyB0ZXN0cyB5ZXRcIiAmJiBleGl0IDAiCiAgfSwKICAidHlwZSI6ICJjb21tb25qcyIsCiAgImxpY2Vuc2UiOiAiSVNDIiwKICAiZGVwZW5kZW5jaWVzIjogewogICAgImRvdGVudiI6ICJeMTcuNC4yIiwKICAgICJleHByZXNzIjogIl41LjIuMSIsCiAgICAiZXhwcmVzcy1yYXRlLWxpbWl0IjogIl44LjUuMiIsCiAgICAiaGVsbWV0IjogIl44LjIuMCIKICB9Cn0K
+{
+  "name": "reentryapp",
+  "version": "0.1.0",
+  "description": "Web app supporting reentry into the community after incarceration.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.11.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "type": "commonjs",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0"
+  }
+}
