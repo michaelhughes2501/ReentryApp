@@ -41,7 +41,7 @@ When adding a DB or auth, extend `.env.example` first so collaborators know what
 
 - Mount any new API routes **before** the SPA fallback in `server.js`.
 - Keep helmet enabled with default headers unless a specific exemption is justified.
-- Tune `windowMs` / `max` on the rate limiter rather than removing it.
+- Tune `windowMs` / `limit` on the rate limiter (express-rate-limit v7+) rather than removing it.
 - The `/health` route must remain exempt from rate limiting (load balancers/probes depend on it).
 - 2-space indent, LF line endings, final newline (`.editorconfig`).
 - Never commit `.env`.
