@@ -39,7 +39,9 @@ app.use(
 );
 
 app.use((_req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
+  res.sendFile(path.join(publicDir, 'index.html'), {
+    headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate' },
+  });
 });
 
 app.listen(PORT, () => {
