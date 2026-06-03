@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -26,7 +26,17 @@ app.use(
     legacyHeaders: false,
   })
 );
-app.use(express.static(publicDir, { maxAge: '1h' }));
+app.use(
+  express.static(publicDir, {
+    maxAge: '1h',
+    setHeaders(res, filePath) {
+      // HTML files must not be cached so browsers always fetch a fresh copy.
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      }
+    },
+  })
+);
 
 app.use((_req, res) => {
   res.sendFile(path.join(publicDir, 'index.html'));
