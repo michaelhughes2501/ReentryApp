@@ -44,6 +44,24 @@ app.use((_req, res) => {
   });
 });
 
+// Explicit error handler so stack traces are never leaked to clients,
+// regardless of NODE_ENV (Express 5 exposes them in development mode by default).
+// eslint-disable-next-line no-unused-vars
+app.use((err, _req, res, next) => {
+  console.error(err);
+  if (res.headersSent) {
+    return next(err);
+  }
+  const rawStatus = err?.status ?? err?.statusCode;
+  const statusCode =
+    Number.isInteger(rawStatus) && rawStatus >= 100 && rawStatus < 600
+      ? rawStatus
+      : 500;
+  const message =
+    statusCode >= 500 ? 'Internal Server Error' : (err?.message ?? 'Bad Request');
+  res.status(statusCode).json({ error: message });
+});
+
 app.listen(PORT, () => {
   console.log(`ReentryApp running at http://localhost:${PORT}`);
 });

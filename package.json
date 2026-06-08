@@ -18,5 +18,9 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.5.2",
     "helmet": "^8.2.0"
+  },
+  "overrides": {
+    "path-to-regexp": "^8.4.2",
+    "qs": "^6.15.2"
   }
 }
