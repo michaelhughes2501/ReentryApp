@@ -5,7 +5,15 @@
 (function initNav() {
   const nav = document.getElementById('nav');
   if (!nav) return;
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+      ticking = false;
+    });
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
@@ -16,6 +24,11 @@
   const links  = document.getElementById('navLinks');
   if (!toggle || !links) return;
 
+  const closeMenu = () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    links.classList.remove('open');
+  };
+
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
@@ -24,9 +37,14 @@
 
   // Close nav when a link is clicked
   links.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      toggle.setAttribute('aria-expanded', 'false');
-      links.classList.remove('open');
+    if (e.target.tagName === 'A') closeMenu();
+  });
+
+  // Close nav on Escape for keyboard users
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
     }
   });
 })();
@@ -75,7 +93,12 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          animate(el, Number(el.dataset.target), 1800);
+          const target = Number(el.dataset.target);
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.textContent = fmt(target);
+          } else {
+            animate(el, target, 1800);
+          }
           io.unobserve(el);
         }
       });
@@ -94,9 +117,11 @@
   if (!form || !input || !message) return;
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let isSubmitting = false;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     message.className = '';
     const val = input.value.trim();
 
@@ -107,6 +132,7 @@
       return;
     }
 
+    isSubmitting = true;
     // Simulate async submission (replace with real fetch() when API exists)
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
@@ -118,6 +144,7 @@
       input.value = '';
       btn.disabled = false;
       btn.textContent = 'Get Early Access';
+      isSubmitting = false;
     }, 900);
   });
 })();
