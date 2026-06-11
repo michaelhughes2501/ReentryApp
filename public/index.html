@@ -3,28 +3,296 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="ReentryApp — support for life after incarceration." />
-    <title>ReentryApp</title>
+    <meta name="description" content="FreshStart — resources, community, and support for people rebuilding life after incarceration. Housing, jobs, legal aid, and more." />
+    <title>FreshStart — Reentry Support &amp; Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>ReentryApp</h1>
-      <p>Support, resources, and community for life after incarceration.</p>
-    </header>
-    <main>
-      <section class="hero">
-        <h2>Welcome</h2>
-        <p>This is a starter site. Real features are coming.</p>
-        <a class="btn" href="#contact">Get in touch</a>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Reach out via the project repository.</p>
-      </section>
-    </main>
-    <footer>
-      <small>&copy; ReentryApp</small>
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-brand" href="/">
+          <span class="nav-brand-icon" aria-hidden="true">&#9679;</span>
+          FreshStart
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#features">Resources</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#cta">Get Started</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge fade-in-up" style="--delay:0s">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Your Second Chapter Starts Here
+        </div>
+        <h1 class="hero-heading fade-in-up" id="hero-heading" style="--delay:0.12s">
+          Rebuild.<br />
+          <span class="hero-heading-accent">Reconnect.</span><br />
+          Rise Again.
+        </h1>
+        <p class="hero-sub fade-in-up" style="--delay:0.24s">
+          FreshStart connects people leaving incarceration with housing, employment,
+          legal aid, mental health support, and a community that believes in second chances.
+        </p>
+        <div class="hero-actions fade-in-up" style="--delay:0.36s">
+          <a class="btn btn-primary" href="#cta">Find Resources Near You</a>
+          <a class="btn btn-ghost" href="#features">Learn How It Works</a>
+        </div>
+        <div class="hero-stats fade-in-up" style="--delay:0.48s" aria-label="Platform statistics">
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-target="12400">0</span>
+            <span class="hero-stat-label">People helped</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-target="340">0</span>
+            <span class="hero-stat-label">Partner organizations</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-num" data-target="50">0</span>
+            <span class="hero-stat-label">States covered</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES / RESOURCES ===== -->
+    <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">What We Offer</span>
+          <h2 class="section-heading" id="features-heading">
+            Everything you need to<br /><span class="accent">rebuild your life</span>
+          </h2>
+          <p class="section-sub">
+            We know the first steps after release are the hardest. FreshStart puts
+            every critical resource in one place so you can focus on what matters: moving forward.
+          </p>
+        </div>
+
+        <div class="feature-grid" role="list">
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:0">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3>Housing &amp; Shelter</h3>
+            <p>Find transitional housing, halfway houses, and affordable rentals from landlords who welcome second chances.</p>
+            <span class="feature-tag">Immediate &amp; Long-term</span>
+          </article>
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:1">
+            <div class="feature-icon feature-icon--green" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h3>Jobs &amp; Employment</h3>
+            <p>Browse fair-chance employers actively hiring people with records — from entry-level to skilled trades and beyond.</p>
+            <span class="feature-tag">Fair-Chance Hiring</span>
+          </article>
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:2">
+            <div class="feature-icon feature-icon--purple" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3>Legal Aid</h3>
+            <p>Connect with attorneys for expungement, record sealing, parole hearings, civil rights issues, and reentry planning.</p>
+            <span class="feature-tag">Pro Bono Available</span>
+          </article>
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:3">
+            <div class="feature-icon feature-icon--rose" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>Mental Health &amp; Wellness</h3>
+            <p>Access counseling, peer support groups, substance-use recovery resources, and crisis hotlines — many at no cost.</p>
+            <span class="feature-tag">Confidential Support</span>
+          </article>
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:4">
+            <div class="feature-icon feature-icon--amber" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Community &amp; Mentorship</h3>
+            <p>Get paired with a mentor who has walked the same road. Share stories, find accountability, and build real connections.</p>
+            <span class="feature-tag">Peer-Led Programs</span>
+          </article>
+
+          <article class="feature-card stagger-in" role="listitem" style="--i:5">
+            <div class="feature-icon feature-icon--teal" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3>Benefits &amp; ID Help</h3>
+            <p>Navigate government benefits, get help obtaining ID documents, and understand your rights around voting and housing applications.</p>
+            <span class="feature-tag">Know Your Rights</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMMUNITY / TESTIMONIALS ===== -->
+    <section class="community" id="community" aria-labelledby="community-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag">Real Stories</span>
+          <h2 class="section-heading" id="community-heading">
+            People who took<br /><span class="accent">their second chance</span>
+          </h2>
+        </div>
+
+        <div class="testimonial-grid" role="list">
+
+          <blockquote class="testimonial-card stagger-in" role="listitem" style="--i:0">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Within two weeks of getting out, FreshStart connected me with a fair-chance employer. Six months later I'm a shift supervisor. I never thought this would be possible."</p>
+            <footer>
+              <div class="testimonial-avatar" aria-hidden="true">M</div>
+              <div>
+                <strong>Marcus T.</strong>
+                <span>Dallas, TX &mdash; Employed 6 months</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card testimonial-card--featured stagger-in" role="listitem" style="--i:1">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The legal aid team helped me get my record expunged. I can finally apply for apartments without that shadow over my name. My kids have their parent back."</p>
+            <footer>
+              <div class="testimonial-avatar testimonial-avatar--accent" aria-hidden="true">D</div>
+              <div>
+                <strong>Diana R.</strong>
+                <span>Chicago, IL &mdash; Record expunged</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card stagger-in" role="listitem" style="--i:2">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The peer mentorship program changed my life. Having someone who had been through it — and made it — gave me hope when I had none. Now I mentor others."</p>
+            <footer>
+              <div class="testimonial-avatar testimonial-avatar--green" aria-hidden="true">J</div>
+              <div>
+                <strong>Jerome W.</strong>
+                <span>Atlanta, GA &mdash; Mentor &amp; mentor</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+
+        <!-- How it works -->
+        <div class="how-it-works">
+          <h3 class="how-heading">How FreshStart Works</h3>
+          <ol class="steps" role="list">
+            <li class="step stagger-in" style="--i:0">
+              <div class="step-num" aria-hidden="true">1</div>
+              <div>
+                <strong>Create your profile</strong>
+                <p>Tell us where you are and what you need most — it takes under two minutes.</p>
+              </div>
+            </li>
+            <li class="step stagger-in" style="--i:1">
+              <div class="step-num" aria-hidden="true">2</div>
+              <div>
+                <strong>Get matched instantly</strong>
+                <p>We surface housing, jobs, and services local to you, filtered by your situation.</p>
+              </div>
+            </li>
+            <li class="step stagger-in" style="--i:2">
+              <div class="step-num" aria-hidden="true">3</div>
+              <div>
+                <strong>Connect and move forward</strong>
+                <p>Reach out to partners directly and track your progress in one place.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA / FOOTER ===== -->
+    <section class="cta-section" id="cta" aria-labelledby="cta-heading">
+      <div class="cta-inner">
+        <div class="cta-orb" aria-hidden="true"></div>
+        <span class="section-tag">Get Started Today</span>
+        <h2 class="cta-heading" id="cta-heading">
+          Your next chapter<br /><span class="accent">begins now</span>
+        </h2>
+        <p class="cta-sub">
+          No judgment. No barriers. Just the resources and community you need
+          to build the life you deserve.
+        </p>
+        <form class="cta-form" id="ctaForm" novalidate aria-label="Email signup form">
+          <label class="sr-only" for="emailInput">Your email address</label>
+          <input
+            type="email"
+            id="emailInput"
+            name="email"
+            class="cta-input"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required
+            aria-required="true"
+          />
+          <button type="submit" class="btn btn-primary">Get Early Access</button>
+        </form>
+        <p class="cta-note" id="ctaMessage" aria-live="polite"></p>
+        <div class="cta-trust">
+          <span>&#10003; Free to use</span>
+          <span>&#10003; Private &amp; confidential</span>
+          <span>&#10003; No spam, ever</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-brand-icon" aria-hidden="true">&#9679;</span>
+          FreshStart
+        </div>
+        <p class="footer-tagline">Support, resources, and community for life after incarceration.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#features">Resources</a>
+          <a href="#community">Community</a>
+          <a href="#cta">Get Started</a>
+          <a href="https://github.com/michaelhughes2501/reentryapp" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 FreshStart. Built with care for second chances.</p>
+      </div>
     </footer>
+
+    <script src="/app.js" defer></script>
   </body>
 </html>
