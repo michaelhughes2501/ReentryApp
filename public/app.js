@@ -94,6 +94,10 @@
         if (entry.isIntersecting) {
           const el = entry.target;
           const target = Number(el.dataset.target);
+          if (Number.isNaN(target)) {
+            io.unobserve(el);
+            return;
+          }
           if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             el.textContent = fmt(target);
           } else {
@@ -135,15 +139,19 @@
     isSubmitting = true;
     // Simulate async submission (replace with real fetch() when API exists)
     const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
 
     setTimeout(() => {
       message.textContent = "You're on the list! We'll be in touch soon.";
       message.className   = 'cta-note';
       input.value = '';
-      btn.disabled = false;
-      btn.textContent = 'Get Early Access';
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Get Early Access';
+      }
       isSubmitting = false;
     }, 900);
   });
