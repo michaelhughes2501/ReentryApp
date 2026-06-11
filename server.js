@@ -57,8 +57,7 @@ app.use((err, _req, res, next) => {
     Number.isInteger(rawStatus) && rawStatus >= 100 && rawStatus < 600
       ? rawStatus
       : 500;
-  const message =
-    statusCode >= 500 ? 'Internal Server Error' : (err?.message ?? 'Bad Request');
+  const message = statusCode >= 500 ? 'Internal Server Error' : 'Bad Request';
   res.status(statusCode).json({ error: message });
 });
 
